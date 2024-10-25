@@ -1,0 +1,416 @@
+@import "https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css";
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css";
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+@import url(https://fonts.googleapis.com/css?family=Lora:regular,500,600,700,italic,500italic,600italic,700italic);
+@import url(https://fonts.googleapis.com/css?family=Rubik+Distressed:regular);
+@import url(https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap);
+:root {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+p {
+  font-family: "Lora", serif;
+  font-size: 1.4rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+}
+
+a {
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+body {
+  background-color: #1e1e1e;
+}
+
+#body-page {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.nav {
+  width: 31rem;
+  height: 100%;
+  background-color: #262626;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.nav .nav-title {
+  color: #fff;
+  font-size: 7rem;
+  font-weight: 500;
+  letter-spacing: 0.2rem;
+}
+.nav .nav-menu-div {
+  padding-top: 2rem;
+  height: calc(100% - 155px);
+}
+.nav .nav-menu-div li.nav-menu {
+  padding: 1rem 0 1rem 1rem;
+  border: 1px solid #262626;
+  border-radius: 10px;
+  margin-bottom: 1px;
+}
+.nav .nav-menu-div li.nav-menu:hover {
+  background-color: rgba(178, 145, 4, 0.5019607843);
+  border-color: rgba(178, 145, 4, 0.5019607843);
+  cursor: pointer;
+}
+.nav .nav-menu-div a {
+  font-size: 1.6rem;
+}
+.nav .nav-menu-div a:hover {
+  color: #fff;
+}
+.nav a.logout {
+  font-size: 1.8rem;
+}
+
+.body-content {
+  width: calc(100% - 31rem);
+  height: 100%;
+}
+
+.user-page {
+  padding: 5rem 2rem;
+}
+.user-page p, .user-page th, .user-page td, .user-page label {
+  color: #fff;
+}
+.user-page p.header-title {
+  font-size: 4rem;
+  margin-bottom: 4rem;
+}
+.user-page .header-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 10rem;
+}
+.user-page .button {
+  width: 22rem;
+  border: 1px solid #b29104;
+  border-radius: 30px;
+  height: 5rem;
+  background-color: #b29104;
+  font-size: 1.6rem;
+  text-align: center;
+  line-height: 5rem;
+  font-weight: bold;
+}
+.user-page .button:hover {
+  color: #fff;
+}
+.user-page button.button {
+  line-height: normal;
+  color: #fff;
+}
+.user-page .form-user {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.user-page .form-user div {
+  width: 40%;
+  background-color: rgba(178, 145, 4, 0.5019607843);
+  margin-right: 4rem;
+  margin-bottom: 3rem;
+  padding: 2rem;
+}
+.user-page .form-user div label {
+  color: #fff;
+  font-size: 1.6rem;
+}
+.user-page .form-user .submit-div {
+  background-color: #1e1e1e;
+}
+
+.user-list-page table {
+  border: 1px solid #fff;
+  width: 100%;
+}
+.user-list-page table th, .user-list-page table td {
+  border: 1px solid #fff;
+  text-align: center;
+}
+.user-list-page table td {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  height: 4rem;
+}
+.user-list-page table td i {
+  padding: 0 1rem;
+  font-size: 1.6rem;
+}
+.user-list-page table th {
+  font-family: "Lora", serif;
+  font-weight: bold;
+  color: #000;
+  background-color: #e6e6e6;
+  font-size: 1.6rem;
+  height: 3rem;
+}
+
+.user-detail-page .body-main {
+  height: calc(100% - 10rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.user-detail-page .body-main .detail-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.user-detail-page .body-main .detail-div .detail-box {
+  background-color: rgba(178, 145, 4, 0.5019607843);
+  width: 65%;
+  padding: 2rem;
+  border: 1px solid rgba(178, 145, 4, 0.5019607843);
+  border-radius: 10px;
+}
+.user-detail-page .body-main .detail-div .image-box {
+  width: 30%;
+  text-align: right;
+}
+.user-detail-page .body-main .detail-div .image-box img {
+  border: 1rem solid rgba(178, 145, 4, 0.5019607843);
+  border-radius: 30px;
+  width: 20rem;
+  height: 20rem;
+  margin: 0 0 auto auto;
+  object-fit: cover;
+  object-position: center;
+}
+.user-detail-page .body-main .button-box {
+  height: 10rem;
+  display: flex;
+}
+
+.user-update-page .body-main {
+  height: calc(100% - 10rem);
+}
+.user-update-page .body-main form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.user-update-page .body-main form label {
+  color: #fff;
+  font-size: 1.6rem;
+  margin-top: 2rem;
+}
+.user-update-page .body-main form .detail-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.user-update-page .body-main form .detail-div .detail-box {
+  background-color: rgba(178, 145, 4, 0.5019607843);
+  width: 65%;
+  padding: 2rem;
+  border: 1px solid rgba(178, 145, 4, 0.5019607843);
+  border-radius: 10px;
+}
+.user-update-page .body-main form .detail-div .image-box {
+  width: 30%;
+  display: flex;
+}
+.user-update-page .body-main form .detail-div .image-box img {
+  border: 1rem solid rgba(178, 145, 4, 0.5019607843);
+  border-radius: 30px;
+  width: 20rem;
+  height: 20rem;
+  margin: 0 0 auto auto;
+  object-fit: cover;
+  object-position: center;
+}
+.user-update-page .body-main form .button-box {
+  height: 10rem;
+  display: flex;
+}
+
+.user-login-page {
+  width: 100%;
+  height: 100%;
+}
+.user-login-page .body-main {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.user-login-page .body-main .login-div {
+  margin: 7% auto auto;
+  background-color: rgba(178, 145, 4, 0.5019607843);
+  width: 70%;
+  height: 30%;
+  padding: 2rem;
+  border: 1px solid rgba(178, 145, 4, 0.5019607843);
+  border-radius: 10px;
+}
+.user-login-page .body-main .login-div p.login-title {
+  text-align: center;
+  font-size: 4rem;
+}
+.user-login-page .body-main .login-div form div {
+  margin-top: 1rem;
+}
+.user-login-page .body-main .login-div form div input {
+  height: 3rem;
+}
+.user-login-page .body-main .login-div form div .button-login {
+  width: 100%;
+}
+.user-login-page .body-main img {
+  position: absolute;
+  right: 0;
+  bottom: -4rem;
+  height: 63%;
+}
+
+.project-page {
+  padding: 5rem 2rem;
+}
+.project-page p, .project-page th, .project-page td, .project-page label {
+  color: #fff;
+}
+.project-page p.header-title {
+  font-size: 4rem;
+  margin-bottom: 4rem;
+}
+.project-page .header-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 10rem;
+}
+.project-page .button {
+  width: 22rem;
+  border: 1px solid #b29104;
+  border-radius: 30px;
+  height: 5rem;
+  background-color: #b29104;
+  font-size: 1.6rem;
+  text-align: center;
+  line-height: 5rem;
+  font-weight: bold;
+}
+.project-page .button:hover {
+  color: #fff;
+}
+.project-page button.button {
+  line-height: normal;
+  color: #fff;
+}
+.project-page .form-project {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.project-page .form-project div {
+  width: 40%;
+  background-color: rgba(178, 145, 4, 0.5019607843);
+  margin-right: 4rem;
+  margin-bottom: 3rem;
+  padding: 2rem;
+}
+.project-page .form-project div label {
+  color: #fff;
+  font-size: 1.6rem;
+}
+.project-page .form-project .submit-div {
+  background-color: #1e1e1e;
+}
+
+.project-list-page table {
+  border: 1px solid #fff;
+  width: 100%;
+}
+.project-list-page table th, .project-list-page table td {
+  border: 1px solid #fff;
+  text-align: center;
+}
+.project-list-page table td {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  height: 4rem;
+}
+.project-list-page table td i {
+  padding: 0 1rem;
+  font-size: 1.6rem;
+}
+.project-list-page table th {
+  font-family: "Lora", serif;
+  font-weight: bold;
+  color: #000;
+  background-color: #e6e6e6;
+  font-size: 1.6rem;
+  height: 3rem;
+}
+
+.project-create-page .body-main {
+  height: calc(100% - 10rem);
+}
+.project-create-page .body-main form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.project-create-page .body-main form label {
+  color: #fff;
+  font-size: 1.6rem;
+  margin-top: 2rem;
+}
+.project-create-page .body-main form .detail-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.project-create-page .body-main form .detail-div .detail-box {
+  background-color: rgba(178, 145, 4, 0.5019607843);
+  width: 65%;
+  padding: 2rem;
+  border: 1px solid rgba(178, 145, 4, 0.5019607843);
+  border-radius: 10px;
+}
+.project-create-page .body-main form .detail-div .image-box {
+  width: 30%;
+  display: flex;
+}
+.project-create-page .body-main form .detail-div .image-box img {
+  border: 1rem solid rgba(178, 145, 4, 0.5019607843);
+  border-radius: 30px;
+  width: 20rem;
+  height: 20rem;
+  margin: 0 0 auto auto;
+  object-fit: cover;
+  object-position: center;
+}
+.project-create-page .body-main form .button-box {
+  height: 10rem;
+  display: flex;
+}
+
+/*# sourceMappingURL=style.css.map */

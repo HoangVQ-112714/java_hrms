@@ -1,0 +1,248 @@
+.user-page {
+  padding: 5rem 2rem;
+
+  p, th, td, label {
+    color: $color_1;
+  }
+
+  p.header-title {
+    font-size: 4rem;
+    margin-bottom: 4rem;
+  }
+
+  .header-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 10rem;
+  }
+
+  .button {
+    width: 22rem;
+    border: 1px solid $color_9;
+    border-radius: 30px;
+    height: 5rem;
+    background-color: $color_9;
+    font-size: 1.6rem;
+    text-align: center;
+    line-height: 5rem;
+    font-weight: bold;
+
+    &:hover {
+      color: $color_1;
+    }
+  }
+
+  button.button {
+    line-height: normal;
+    color: $color_1;
+  }
+
+  .form-user {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    div {
+      width: 40%;
+      background-color: $color_7;
+      margin-right: 4rem;
+      margin-bottom: 3rem;
+      padding: 2rem;
+
+      label {
+        color: $color_1;
+        font-size: 1.6rem;
+      }
+    }
+
+    .submit-div {
+      background-color: $color_3;
+    }
+  }
+}
+
+//user-list
+.user-list-page {
+
+  table {
+    border: 1px solid $color_1;
+    width: 100%;
+
+    th, td {
+      border: 1px solid $color_1;
+      text-align: center;
+    }
+
+    td {
+      font-family: $font_1;
+      font-size: 1.2rem;
+      height: 4rem;
+
+      i {
+        padding: 0 1rem;
+        font-size: 1.6rem;
+      }
+    }
+
+    th {
+      font-family: $font_2;
+      font-weight: bold;
+      color: $color_2;
+      background-color: $color_5;
+      font-size: 1.6rem;
+      height: 3rem;
+    }
+  }
+}
+
+//user-create
+.user-create-page {
+}
+
+//user-detail
+.user-detail-page {
+  .body-main {
+    height: calc(100% - 10rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .detail-div {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .detail-box {
+        background-color: $color_7;
+        width: 65%;
+        padding: 2rem;
+        border: 1px solid $color_7;
+        border-radius: 10px;
+      }
+
+      .image-box {
+        width: 30%;
+        text-align: right;
+
+        img {
+          border: 1rem solid $color_7;
+          border-radius: 30px;
+          width: 20rem;
+          height: 20rem;
+          margin: 0 0 auto auto;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+    }
+
+    .button-box {
+      height: 10rem;
+      display: flex;
+    }
+  }
+}
+
+//user-update
+.user-update-page {
+  .body-main {
+    height: calc(100% - 10rem);
+
+    form {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      label {
+        color: $color_1;
+        font-size: 1.6rem;
+        margin-top: 2rem;
+      }
+
+      .detail-div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .detail-box {
+          background-color: $color_7;
+          width: 65%;
+          padding: 2rem;
+          border: 1px solid $color_7;
+          border-radius: 10px;
+        }
+
+        .image-box {
+          width: 30%;
+          display: flex;
+
+          img {
+            border: 1rem solid $color_7;
+            border-radius: 30px;
+            width: 20rem;
+            height: 20rem;
+            margin: 0 0 auto auto;
+            object-fit: cover;
+            object-position: center;
+          }
+        }
+      }
+
+      .button-box {
+        height: 10rem;
+        display: flex;
+      }
+    }
+  }
+}
+
+//user-login
+.user-login-page {
+  width: 100%;
+  height: 100%;
+
+  .body-main {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    .login-div {
+      margin: 7% auto auto;
+      background-color: $color_7;
+      width: 70%;
+      height: 30%;
+      padding: 2rem;
+      border: 1px solid $color_7;
+      border-radius: 10px;
+
+      p.login-title {
+        text-align: center;
+        font-size: 4rem;
+      }
+
+      form {
+        div {
+          margin-top: 1rem;
+
+          input {
+            height: 3rem;
+          }
+
+          .button-login {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    img {
+      position: absolute;
+      right: 0;
+      bottom: -4rem;
+      height: 63%;
+    }
+  }
+}
