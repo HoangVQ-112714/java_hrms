@@ -22,26 +22,27 @@
     <div class="body-content user-page user-detail-page">
         <div class="header-main">
             <p class="header-title">Thông tin chi tiết</p>
-            <a href="/user/list" class="button">Trở về</a>
+            <a href="/project/list" class="button">Trở về</a>
         </div>
         <div class="body-main">
             <div class="detail-div">
                 <div class="detail-box">
-                    <p>Nhân sự: ${user.name}</p>
-                    <p>Mail: ${user.email}</p>
-                    <p>Số điện thoại: ${user.phone}</p>
-                    <p>Chức vụ: ${user.role.name}</p>
+                    <p>Kênh phát triển: ${project.type}</p>
+                    <p>Dự án: ${project.name}</p>
+                    <p>Mô tả: ${project.description}</p>
+                    <p>Chức vụ: 1</p>
                     <p>Số dự án: 3</p>
                     <p>Số ngày công: 20/24</p>
                     <p>Số ngày nghỉ phép còn: 5</p>
                 </div>
 
                 <div class="image-box">
-                    <img src="../images/avatar/${user.avatar}" alt="" class="avatar-user">
+                    <img src="../images/project/${project.image}" alt="" class="avatar-user">
                 </div>
             </div>
             <div class="button-box">
-                <a href="/user/update/${user.id}" class="button button-edit">Chỉnh sửa</a>
+                <a href="/project/${project.id}/update" class="button button-edit">Chỉnh sửa</a>
+                <a href="/project/${project.id}/add_user" class="button button-edit">Thêm người vào dự án</a>
             </div>
         </div>
     </div>

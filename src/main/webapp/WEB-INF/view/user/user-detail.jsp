@@ -41,7 +41,7 @@
                 </div>
             </div>
             <div class="button-box">
-                <a href="/user/update/${user.id}" class="button button-edit">Chỉnh sửa</a>
+                <a href="/user/${user.id}/update" class="button button-edit">Chỉnh sửa</a>
             </div>
         </div>
     </div>

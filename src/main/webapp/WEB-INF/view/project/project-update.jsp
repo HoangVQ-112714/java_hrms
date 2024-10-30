@@ -20,18 +20,18 @@
 
     <script>
         $(document).ready(() => {
-            const avatarFile = $("#avatarFile");
-            const orgImage = "${user.avatar}";
+            const imageFile = $("#projectFile");
+            const orgImage = "${project.image}";
             if (orgImage) {
-                const urlImage = "/images/avatar/" + orgImage;
-                $("#avatarPreview").attr("src", urlImage);
-                $("#avatarPreview").css({ "display": "block" });
+                const urlImage = "/images/project/" + orgImage;
+                $("#projectPreview").attr("src", urlImage);
+                $("#projectPreview").css({ "display": "block" });
             }
 
-            avatarFile.change(function (e) {
+            imageFile.change(function (e) {
                 const imgURL = URL.createObjectURL(e.target.files[0]);
-                $("#avatarPreview").attr("src", imgURL);
-                $("#avatarPreview").css({ "display": "block" });
+                $("#projectPreview").attr("src", imgURL);
+                $("#projectPreview").css({ "display": "block" });
             });
         });
     </script>
@@ -42,56 +42,41 @@
     <div class="body-content user-page user-update-page">
         <div class="header-main">
             <p class="header-title">Chỉnh sửa thông tin</p>
-            <a href="/user/list" class="button">Trở về</a>
+            <a href="/project/list" class="button">Trở về</a>
         </div>
         <div class="body-main">
-            <form:form method="post" action="/user/${id}" modelAttribute="user"  enctype="multipart/form-data">
+            <form:form method="post" action="/project/${id}" modelAttribute="project"  enctype="multipart/form-data">
                 <div class="detail-div">
                     <div class="detail-box">
                         <div class="">
-                            <p class="form-label">Mã số: MS_000${id}</p>
+                            <p class="form-label">Mã số: DA_${id}</p>
                         </div>
                         <div class="">
-                            <label for="userName" class="form-label">Người dùng</label>
-                            <form:input type="text" class="form-control" id="userName" path="name"/>
+                            <label for="projectName" class="form-label">Dự án</label>
+                            <form:input type="text" class="form-control" id="projectName" path="name"/>
                         </div>
                         <div class="">
-                            <label for="userMail" class="form-label">Email</label>
-                            <form:input type="email" class="form-control" id="userMail" path="email"/>
+                            <label for="projectDescription" class="form-label">Mô tả</label>
+                            <form:input type="text" class="form-control" id="projectDescription" path="description"/>
                         </div>
                         <div class="">
-                            <label for="userPhone" class="form-label">Số điện thoại</label>
-                            <form:input type="tel" class="form-control" id="userPhone" path="phone"/>
-                        </div>
-                        <div class="">
-                            <label for="userPass" class="form-label">Mật khẩu</label>
-                            <form:input type="text" class="form-control" id="userPass" path="password"/>
-                        </div>
-                        <div class="">
-                            <label class="form-label">Trạng thái</label>
-                            <form:select class="form-select" path="status">
-                                <form:option value="Active">Active</form:option>
-                                <form:option value="Block">Block</form:option>
+                            <label class="form-label">Loại dự án</label>
+                            <form:select class="form-select" path="type">
+                                <form:option value="Youtube">Youtube</form:option>
+                                <form:option value="Youtube">Youtube</form:option>
+                                <form:option value="App">App</form:option>
                             </form:select>
                         </div>
                         <div class="">
-                            <label class="form-label">Role</label>
-                            <form:select class="form-select" path="role.name">
-                                <form:option value="Admin">Admin</form:option>
-                                <form:option value="Leader">Leader</form:option>
-                                <form:option value="Member">Member</form:option>
-                            </form:select>
-                        </div>
-                        <div class="">
-                            <label for="avatarFile" class="form-label">Image:</label>
-                            <input class="form-control" type="file" id="avatarFile"
+                            <label for="projectFile" class="form-label">Image:</label>
+                            <input class="form-control" type="file" id="projectFile"
                                    accept=".png, .jpg, .jpeg" name="hrmsFile"/>
                         </div>
                     </div>
 
                     <div class="image-box">
-                        <img style="display: none;" alt="avatar preview"
-                             id="avatarPreview" class="avatar-user"/>
+                        <img style="display: none;" alt="project preview"
+                             id="projectPreview" class="avatar-user"/>
                     </div>
                 </div>
                 <div class="button-box">
