@@ -8,7 +8,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HRMS | Cập nhật dự án</title>
+    <title>HRMS | Cập nhật chủ đề</title>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
             crossorigin="anonymous"></script>
@@ -45,11 +45,11 @@
             <a href="/project/list" class="button">Trở về</a>
         </div>
         <div class="body-main">
-            <form:form method="post" action="/project/${project.id}/update/post" modelAttribute="project"  enctype="multipart/form-data">
+            <form:form method="post" action="/project/${id}" modelAttribute="project"  enctype="multipart/form-data">
                 <div class="detail-div">
                     <div class="detail-box">
                         <div class="">
-                            <p class="form-label">Mã số: DA_${project.id}</p>
+                            <p class="form-label">Mã số: DA_${id}</p>
                         </div>
                         <div class="">
                             <label for="projectName" class="form-label">Dự án</label>

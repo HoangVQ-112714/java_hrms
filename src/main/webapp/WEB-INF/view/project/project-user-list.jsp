@@ -6,7 +6,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HRMS | Project List</title>
+    <title>HRMS | NS của dự án</title>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -20,38 +20,23 @@
     <jsp:include page="../layout/nav.jsp"/>
     <div class="body-content project-page project-list-page">
         <div class="header-main">
-            <p class="header-title">Danh sách dự án</p>
-            <a href="/project/create" class="button">Thêm mới</a>
+            <p class="header-title">${project.type} - Nhân sự dự án ${project.name}</p>
+            <a href="/project/${project.id}/add_user" class="button">Thêm nhân sự</a>
         </div>
         <div class="body-main">
             <table>
                 <tr>
-                    <th class="header-title">Kênh triển khai</th>
                     <th class="header-title">Mã</th>
-                    <th class="header-title">Dự án</th>
-                    <th class="header-title">Mô tả</th>
-                    <th class="header-title">SL tham gia</th>
-                    <th class="header-title">SL nội dung</th>
-                    <th class="header-title">SL đăng tải</th>
-                    <th class="header-title">SL view</th>
-                    <th class="header-title">Doanh thu</th>
+                    <th class="header-title">Nhân sự</th>
                     <th class="header-title">Lựa chọn</th>
                 </tr>
-                <c:forEach items="${projects}" var="project">
+                <c:forEach items="${usersByProject}" var="userByProject">
                     <tr>
-                        <td>Toptop</td>
-                        <td>DA_${project.id}</td>
-                        <td>t1</td>
-                        <td>t1</td>
-                        <td>t1</td>
-                        <td>t1</td>
-                        <td>t1</td>
-                        <td>t1</td>
-                        <td>t1</td>
+                        <td>NS_${userByProject.id}</td>
+                        <td>${userByProject.name}</td>
                         <td>
                             <a href="/project/${project.id}"><i class="fa-solid fa-magnifying-glass"></i></a>
-                            <a href="/project/${project.id}/update"><i class="fa-solid fa-pen-to-square"></i></a>
-                            <a href="/project/${project.id}/delete"><i class="fa-solid fa-trash"></i></a>
+                            <a href="/project/${project.id}/delete_user/${userByProject.id}"><i class="fa-solid fa-trash"></i></a>
                         </td>
                     </tr>
                 </c:forEach>

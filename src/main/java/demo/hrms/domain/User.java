@@ -28,21 +28,8 @@ public class User {
     private String avatar;
     private String status;
 
-    @ManyToMany
-    @JoinTable(
-            name = "user_project",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "project_id")
-    )
-    private Set<Project> projects = new HashSet<>();
-
-    @ManyToMany
-    @JoinTable(
-            name = "user_content_topic",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "content_topic_id")
-    )
-    private Set<ContentTopic> contentTopics = new HashSet<>();
+    @OneToMany(mappedBy = "user")
+    private Set<ProjectUser> projectUsers = new HashSet<>();
 
     @ManyToOne
     @JoinColumn(name = "role_id")
@@ -61,7 +48,6 @@ public class User {
     public String toString() {
         return "User{" +
                 "role=" + role +
-                ", contentTopics=" + contentTopics +
                 ", status='" + status + '\'' +
                 ", avatar='" + avatar + '\'' +
                 ", phone='" + phone + '\'' +
@@ -128,21 +114,13 @@ public class User {
         this.status = status;
     }
 
-    public Set<Project> getProjects() {
-        return projects;
-    }
+//    public Set<ContentTopic> getContentTopics() {
+//        return contentTopics;
+//    }
 
-    public void setProjects(Set<Project> projects) {
-        this.projects = projects;
-    }
-
-    public Set<ContentTopic> getContentTopics() {
-        return contentTopics;
-    }
-
-    public void setContentTopics(Set<ContentTopic> contentTopics) {
-        this.contentTopics = contentTopics;
-    }
+//    public void setContentTopics(Set<ContentTopic> contentTopics) {
+//        this.contentTopics = contentTopics;
+//    }
 
     public Role getRole() {
         return role;

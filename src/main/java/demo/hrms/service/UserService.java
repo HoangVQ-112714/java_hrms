@@ -4,6 +4,7 @@ import demo.hrms.domain.User;
 import demo.hrms.domain.Role;
 import demo.hrms.repository.RoleRepository;
 import demo.hrms.repository.UserRepository;
+import demo.hrms.repository.ProjectUserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,10 +13,12 @@ import java.util.List;
 public class UserService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
+    private final ProjectUserRepository projectUserRepository;
 
-    public UserService(UserRepository userRepository, RoleRepository roleRepository) {
+    public UserService(UserRepository userRepository, RoleRepository roleRepository, ProjectUserRepository projectUserRepository) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
+        this.projectUserRepository = projectUserRepository;
     }
 
     public User addNewUser(User user) {
@@ -36,5 +39,10 @@ public class UserService {
 
     public Role getRoleByName(String name) {
         return this.roleRepository.findIdByName(name);
+    }
+
+    public List<User> loadUserForProject(Long project_id) {
+        List<Long> userIds = this.projectUserRepository.findUserIdsByProjectId(project_id);
+        return this.userRepository.findUsersByIds(userIds);
     }
 }

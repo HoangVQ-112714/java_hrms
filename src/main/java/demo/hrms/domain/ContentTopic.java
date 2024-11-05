@@ -29,8 +29,7 @@ public class ContentTopic {
     @NotNull
     private String status;
 
-    @ManyToMany(mappedBy = "contentTopics")
-    private Set<User> users = new HashSet<>();
+    private String image;
 
     @ManyToOne
     @JoinColumn(name = "project_id")
@@ -42,4 +41,91 @@ public class ContentTopic {
     @OneToMany(mappedBy = "contentTopic")
     private List<Task> tasks;
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public @NotNull String getName() {
+        return name;
+    }
+
+    public void setName(@NotNull String name) {
+        this.name = name;
+    }
+
+    public @NotNull String getDescription() {
+        return description;
+    }
+
+    public void setDescription(@NotNull String description) {
+        this.description = description;
+    }
+
+    public @NotNull String getUrl_1() {
+        return url_1;
+    }
+
+    public void setUrl_1(@NotNull String url_1) {
+        this.url_1 = url_1;
+    }
+
+    public String getUrl_2() {
+        return url_2;
+    }
+
+    public void setUrl_2(String url_2) {
+        this.url_2 = url_2;
+    }
+
+    public String getUrl_3() {
+        return url_3;
+    }
+
+    public void setUrl_3(String url_3) {
+        this.url_3 = url_3;
+    }
+
+    public @NotNull String getStatus() {
+        return status;
+    }
+
+    public void setStatus(@NotNull String status) {
+        this.status = status;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
+
+    public List<ContentSection> getContentSections() {
+        return contentSections;
+    }
+
+    public void setContentSections(List<ContentSection> contentSections) {
+        this.contentSections = contentSections;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
+    }
 }

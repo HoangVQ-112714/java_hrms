@@ -6,7 +6,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HRMS | Chi tiết dự án</title>
+    <title>HRMS | Thông tin chủ đề</title>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
             crossorigin="anonymous"></script>
@@ -31,6 +31,7 @@
                     <p>Dự án: ${project.name}</p>
                     <p>Mô tả: ${project.description}</p>
                     <p>Số nhân sự: ${countUser}</p>
+                    <p>Số dự án: 3</p>
                     <p>SL chủ đề nội dung:</p>
                     <p>SL công việc còn:</p>
                 </div>
@@ -41,8 +42,7 @@
             </div>
             <div class="button-box">
                 <a href="/project/${project.id}/update" class="button button-edit">Chỉnh sửa</a>
-                <a href="/project/${project.id}/add_user" class="button button-edit">Thêm nhân sự</a>
-                <a href="/project/${project.id}/add_content_topic" class="button button-edit">Thêm chủ đề</a>
+                <a href="/project/${project.id}/add_user" class="button button-edit">Thêm người vào dự án</a>
             </div>
         </div>
     </div>

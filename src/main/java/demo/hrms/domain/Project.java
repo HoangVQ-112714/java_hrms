@@ -24,8 +24,8 @@ public class Project {
     @NotNull
     private String type;
 
-    @ManyToMany(mappedBy = "projects")
-    private Set<User> users = new HashSet<>();
+    @OneToMany(mappedBy = "project")
+    private Set<ProjectUser> projectUsers = new HashSet<>();
 
     @OneToMany(mappedBy = "project")
     private List<ContentTopic> contentTopic;
@@ -74,14 +74,6 @@ public class Project {
 
     public void setType(@NotNull String type) {
         this.type = type;
-    }
-
-    public Set<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(Set<User> users) {
-        this.users = users;
     }
 
     public List<ContentTopic> getContentTopic() {
