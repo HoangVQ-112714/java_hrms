@@ -12,7 +12,7 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
 
     List<Project> findAll();
 
-    Project findById(long id);
+    Project findById(long project_id);
 
-    Project deleteById(long id);
+    Project deleteById(long project_id);
 }

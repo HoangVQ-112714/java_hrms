@@ -39,10 +39,10 @@
                 </tr>
                 <c:forEach items="${projects}" var="project">
                     <tr>
-                        <td>Toptop</td>
+                        <td>${project.type}</td>
                         <td>DA_${project.id}</td>
-                        <td>t1</td>
-                        <td>t1</td>
+                        <td>${project.name}</td>
+                        <td>${project.description}</td>
                         <td>t1</td>
                         <td>t1</td>
                         <td>t1</td>

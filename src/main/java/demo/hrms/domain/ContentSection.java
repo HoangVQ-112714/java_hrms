@@ -29,4 +29,51 @@ public class ContentSection {
     @OneToMany(mappedBy = "contentSection")
     private List<Task> tasks;
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public @NotNull String getName() {
+        return name;
+    }
+
+    public void setName(@NotNull String name) {
+        this.name = name;
+    }
+
+    public ContentTopic getContentTopic() {
+        return contentTopic;
+    }
+
+    public void setContentTopic(ContentTopic contentTopic) {
+        this.contentTopic = contentTopic;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public List<ContentSectionDetail> getContentSectionDetails() {
+        return contentSectionDetails;
+    }
+
+    public void setContentSectionDetails(List<ContentSectionDetail> contentSectionDetails) {
+        this.contentSectionDetails = contentSectionDetails;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
+    }
 }

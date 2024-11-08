@@ -7,7 +7,7 @@
             <li class="nav-menu" btn="user-private"><a href="/user/{id}" class="user-private">Cá nhân</a></li>
             <li class="nav-menu" btn="user-list"><a href="/user/list" class="user-list">Nhân sự</a></li>
             <li class="nav-menu" btn="user-private"><a href="/project/list">Dự án</a></li>
-            <li class="nav-menu" btn="user-private"><a href="">Công việc</a></li>
+            <li class="nav-menu" btn="user-private"><a href="/task/list">Công việc</a></li>
             <li class="nav-menu" btn="user-private"><a href="">Lịch</a></li>
         </ul>
     </div>

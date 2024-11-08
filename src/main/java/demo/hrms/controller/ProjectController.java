@@ -91,7 +91,7 @@ public class ProjectController {
                                  @ModelAttribute("project") Project projectInfo,
                                  @PathVariable long project_id,
                                  @RequestParam("hrmsFile") MultipartFile file) {
-        Project project = this.projectService.loadProjectById(projectInfo.getId());
+        Project project = this.projectService.loadProjectById(project_id);
         if (project != null) {
             project.setName(projectInfo.getName());
             project.setDescription(projectInfo.getDescription());
@@ -264,4 +264,43 @@ public class ProjectController {
         }
         return "redirect:/project/{project_id}/content_topic/list";
     }
+
+    /**********************
+     * Quản lý tập
+     **********************/
+    @GetMapping("/project/{project_id}/add_content_section")
+    public String projectAddContentSection(Model model,
+                                         @PathVariable long project_id) {
+        Project project = this.projectService.loadProjectById(project_id);
+        model.addAttribute("project", project);
+        List<User> arrUserByProject = this.userService.loadUserForProject(project_id);
+        model.addAttribute("usersByProject", arrUserByProject);
+        model.addAttribute("newContentTopic", new ContentTopic());
+        return "content-topic/content-topic-create";
+    }
+
+    @PostMapping("/project/{project_id}/add_content_section/post")
+    public String saveProjectContentSection(Model model,
+                                          @PathVariable long project_id,
+                                          @ModelAttribute("newContentTopic") @Valid ContentTopic contentTopic,
+                                          BindingResult newContentTopicBindingResult,
+                                          @RequestParam("hrmsFile") MultipartFile file) {
+        Project project = this.projectService.loadProjectById(project_id);
+        model.addAttribute("project", project);
+
+        if (newContentTopicBindingResult.hasErrors()) {
+            return "content-topic/content-topic-create";
+        }
+
+        String avatar = this.uploadService.handleSaveFileUploadFile(file, "content");
+        if (Objects.equals(avatar, "")) {
+            avatar = "project-default-1.jpg";
+        }
+        contentTopic.setImage(avatar);
+        contentTopic.setProject(project);
+        contentTopic.setContentTopicStatus(this.projectService.getContentTopicStatusByName(contentTopic.getContentTopicStatus().getName()));
+        this.projectService.addNewContentTopic(contentTopic);
+        return "redirect:/project/{project_id}";
+    }
+
 }

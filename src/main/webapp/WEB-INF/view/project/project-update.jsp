@@ -62,7 +62,7 @@
                         <div class="">
                             <label class="form-label">Loại dự án</label>
                             <form:select class="form-select" path="type">
-                                <form:option value="Youtube">Youtube</form:option>
+                                <form:option value="Website">Website</form:option>
                                 <form:option value="Youtube">Youtube</form:option>
                                 <form:option value="App">App</form:option>
                             </form:select>
