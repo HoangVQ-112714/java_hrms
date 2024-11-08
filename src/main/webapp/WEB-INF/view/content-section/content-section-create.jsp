@@ -66,12 +66,12 @@
                         </div>
                         <div class="">
                             <label class="form-label">Trạng thái</label>
-                            <form:select class="form-select" path="contentTopicStatus.name">
-                                <form:option value="Hoạt động">Hoạt động</form:option>
-                                <form:option value="Chờ chap">Chờ chap</form:option>
-                                <form:option value="Hết season">Hết season</form:option>
-                                <form:option value="Tạm dừng">Tạm dừng</form:option>
-                                <form:option value="Kết thúc">Kết thúc</form:option>
+                            <form:select class="form-select" path="status">
+                                <form:option value="1">Hoạt động</form:option>
+                                <form:option value="2">Chờ chap</form:option>
+                                <form:option value="3">Hết season</form:option>
+                                <form:option value="4">Tạm dừng</form:option>
+                                <form:option value="0">Kết thúc</form:option>
                             </form:select>
                         </div>
                         <div class="">

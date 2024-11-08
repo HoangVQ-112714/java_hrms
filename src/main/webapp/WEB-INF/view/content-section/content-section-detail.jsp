@@ -22,29 +22,27 @@
     <div class="body-content user-page user-detail-page">
         <div class="header-main">
             <p class="header-title">Thông tin chi tiết</p>
-            <a href="/project/${project.id}/content_topic/list" class="button">Trở về</a>
+            <a href="/project/list" class="button">Trở về</a>
         </div>
         <div class="body-main">
             <div class="detail-div">
                 <div class="detail-box">
-                    <p>Dự án: DA_${project.name}</p>
-                    <p>Chủ đề: ${contentTopic.name}</p>
-                    <p>Mô tả: ${contentTopic.description}</p>
-                    <p>Trạng thái: ${contentTopic.contentTopicStatus.name}</p>
-                    <p>Url 1: ${contentTopic.url_1}</p>
-                    <p>Url 2: ${contentTopic.url_2}</p>
-                    <p>Url 3: ${contentTopic.url_3}</p>
-                    <p>SL nội dung:</p>
+                    <p>Kênh phát triển: ${project.type}</p>
+                    <p>Dự án: ${project.name}</p>
+                    <p>Mô tả: ${project.description}</p>
+                    <p>Số nhân sự: ${countUser}</p>
+                    <p>Số dự án: 3</p>
+                    <p>SL chủ đề nội dung:</p>
+                    <p>SL công việc còn:</p>
                 </div>
 
                 <div class="image-box">
-                    <img src="/images/content/${contentTopic.image}" alt="" class="avatar-user">
+                    <img src="../images/project/${project.image}" alt="" class="avatar-user">
                 </div>
             </div>
             <div class="button-box">
                 <a href="/project/${project.id}/update" class="button button-edit">Chỉnh sửa</a>
                 <a href="/project/${project.id}/add_user" class="button button-edit">Thêm người vào dự án</a>
-                <a href="/project/${project.id}/add_content_section" class="button button-edit">Thêm tập</a>
             </div>
         </div>
     </div>

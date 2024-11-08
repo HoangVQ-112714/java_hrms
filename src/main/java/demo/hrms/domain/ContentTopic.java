@@ -25,11 +25,11 @@ public class ContentTopic {
 
     private String url_2;
     private String url_3;
-
-    @NotNull
-    private String status;
-
     private String image;
+
+    @ManyToOne
+    @JoinColumn(name = "content_topic_status_id")
+    private ContentTopicStatus contentTopicStatus;
 
     @ManyToOne
     @JoinColumn(name = "project_id")
@@ -89,20 +89,20 @@ public class ContentTopic {
         this.url_3 = url_3;
     }
 
-    public @NotNull String getStatus() {
-        return status;
-    }
-
-    public void setStatus(@NotNull String status) {
-        this.status = status;
-    }
-
     public String getImage() {
         return image;
     }
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public ContentTopicStatus getContentTopicStatus() {
+        return contentTopicStatus;
+    }
+
+    public void setContentTopicStatus(ContentTopicStatus contentTopicStatus) {
+        this.contentTopicStatus = contentTopicStatus;
     }
 
     public Project getProject() {

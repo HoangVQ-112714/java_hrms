@@ -8,7 +8,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HRMS | Thêm chủ đề</title>
+    <title>HRMS | Cập nhật chủ đề</title>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
             crossorigin="anonymous"></script>
@@ -20,29 +20,45 @@
 
     <script>
         $(document).ready(() => {
-            const avatarFile = $("#contentTopicFile");
+            const value_status = $("select.status-form").attr("status_value");
+            $("select.status-form option")[value_status - 1].selected = true;
 
-            avatarFile.change(function (e) {
+            const imageFile = $("#contentTopicFile");
+            const orgImage = "${project.image}";
+            if (orgImage) {
+                const urlImage = "/images/project/" + orgImage;
+                $("#contentTopicPreview").attr("src", urlImage);
+                $("#contentTopicPreview").css({"display": "block"});
+            }
+
+            imageFile.change(function (e) {
                 const imgURL = URL.createObjectURL(e.target.files[0]);
                 $("#contentTopicPreview").attr("src", imgURL);
                 $("#contentTopicPreview").css({"display": "block"});
             });
         });
+
     </script>
 </head>
 <body>
 <div id="body-page">
     <jsp:include page="../layout/nav.jsp"/>
-    <div class="body-content project-page project-create-page">
+    <div class="body-content user-page user-update-page">
         <div class="header-main">
-            <p class="header-title">Thêm chủ đề</p>
+            <p class="header-title">Chỉnh sửa thông tin</p>
             <a href="/project/list" class="button">Trở về</a>
         </div>
         <div class="body-main">
-            <form:form method="post" action="/project/${project.id}/add_content_topic/post" modelAttribute="newContentTopic"
-                       class="form-user form-add-user" enctype="multipart/form-data">
+            <form:form method="post" action="/project/${project.id}/content_topic/${contentTopic.id}/update/post"
+                       modelAttribute="contentTopic" enctype="multipart/form-data">
                 <div class="detail-div">
                     <div class="detail-box">
+                        <div class="" style="display:none">
+                            <form:input type="text" class="form-control" id="contentTopicName" path="id"/>
+                        </div>
+                        <div class="">
+                            <p class="form-label">Dự án: ${project.name}</p>
+                        </div>
                         <div class="">
                             <label for="contentTopicName" class="form-label">Chủ đề</label>
                             <form:input type="text" class="form-control" id="contentTopicName" path="name"/>
@@ -53,25 +69,26 @@
                                         path="description"/>
                         </div>
                         <div class="">
-                            <label for="contentTopicUrl1" class="form-label">Đường dẫn 1</label>
-                            <form:input type="text" class="form-control" id="contentTopicUrl1" path="url_1"/>
+                            <label for="contentTopicUrl_1" class="form-label">Đường dẫn 1</label>
+                            <form:input type="text" class="form-control" id="contentTopicUrl_1" path="url_1"/>
                         </div>
                         <div class="">
-                            <label for="contentTopicUrl2" class="form-label">Đường dẫn 2</label>
-                            <form:input type="text" class="form-control" id="contentTopicUrl2" path="url_2"/>
+                            <label for="contentTopicUrl_2" class="form-label">Đường dẫn 2</label>
+                            <form:input type="text" class="form-control" id="contentTopicUrl_2" path="url_2"/>
                         </div>
                         <div class="">
-                            <label for="contentTopicUrl3" class="form-label">Đường dẫn 3</label>
-                            <form:input type="text" class="form-control" id="contentTopicUrl3" path="url_3"/>
+                            <label for="contentTopicUrl_3" class="form-label">Đường dẫn 3</label>
+                            <form:input type="text" class="form-control" id="contentTopicUrl_3" path="url_3"/>
                         </div>
                         <div class="">
                             <label class="form-label">Trạng thái</label>
-                            <form:select class="form-select" path="contentTopicStatus.name">
-                                <form:option value="Hoạt động">Hoạt động</form:option>
-                                <form:option value="Chờ chap">Chờ chap</form:option>
-                                <form:option value="Hết season">Hết season</form:option>
-                                <form:option value="Tạm dừng">Tạm dừng</form:option>
-                                <form:option value="Kết thúc">Kết thúc</form:option>
+                            <form:select class="form-select status-form" path="status"
+                                         status_value="${contentTopic.status}">
+                                <form:option value="1">Hoạt động</form:option>
+                                <form:option value="2">Chờ chap</form:option>
+                                <form:option value="3">Hết season</form:option>
+                                <form:option value="4">Tạm dừng</form:option>
+                                <form:option value="0">Kết thúc</form:option>
                             </form:select>
                         </div>
                         <div class="">
@@ -86,14 +103,12 @@
                              id="contentTopicPreview" class="avatar-user"/>
                     </div>
                 </div>
-
                 <div class="button-box">
-                    <button type="submit" class="button button-edit">Tạo mới</button>
+                    <button type="submit" class="button button-edit">Cập nhật</button>
                 </div>
-            </form:form>
-
-        </div>
+            </form:form></div>
     </div>
+</div>
 </div>
 </body>
 </html>

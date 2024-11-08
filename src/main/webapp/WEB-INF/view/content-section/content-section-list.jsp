@@ -39,13 +39,13 @@
                     <tr>
                         <td>CT_${contentTopic.name}</td>
                         <td>${contentTopic.description}</td>
-                        <td>${contentTopic.contentTopicStatus.name}</td>
+                        <td>${contentTopic.status}</td>
                         <td>${contentTopic.url_1}</td>
                         <td>${contentTopic.url_2}</td>
                         <td>${contentTopic.url_3}</td>
                         <td>6</td>
                         <td>
-                            <a href="/project/${project.id}/content_topic/${contentTopic.id}/detail"><i class="fa-solid fa-magnifying-glass"></i></a>
+                            <a href="/project/${contentTopic.id}"><i class="fa-solid fa-magnifying-glass"></i></a>
                             <a href="/project/${project.id}/content_topic/${contentTopic.id}/update"><i class="fa-solid fa-pen-to-square"></i></a>
                             <a href="/project/${project.id}/content_topic/${contentTopic.id}/delete"><i class="fa-solid fa-trash"></i></a>
                         </td>

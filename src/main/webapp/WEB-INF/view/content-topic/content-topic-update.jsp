@@ -20,20 +20,21 @@
 
     <script>
         $(document).ready(() => {
-            const imageFile = $("#projectFile");
-            const orgImage = "${project.image}";
+            const imageFile = $("#contentTopicFile");
+            const orgImage = "${contentTopic.image}";
             if (orgImage) {
-                const urlImage = "/images/project/" + orgImage;
-                $("#projectPreview").attr("src", urlImage);
-                $("#projectPreview").css({ "display": "block" });
+                const urlImage = "/images/content/" + orgImage;
+                $("#contentTopicPreview").attr("src", urlImage);
+                $("#contentTopicPreview").css({"display": "block"});
             }
 
             imageFile.change(function (e) {
                 const imgURL = URL.createObjectURL(e.target.files[0]);
-                $("#projectPreview").attr("src", imgURL);
-                $("#projectPreview").css({ "display": "block" });
+                $("#contentTopicPreview").attr("src", imgURL);
+                $("#contentTopicPreview").css({"display": "block"});
             });
         });
+
     </script>
 </head>
 <body>
@@ -45,38 +46,57 @@
             <a href="/project/list" class="button">Trở về</a>
         </div>
         <div class="body-main">
-            <form:form method="post" action="/project/${id}" modelAttribute="project"  enctype="multipart/form-data">
+            <form:form method="post" action="/project/${project.id}/content_topic/${contentTopic.id}/update/post"
+                       modelAttribute="contentTopic" enctype="multipart/form-data">
                 <div class="detail-div">
                     <div class="detail-box">
-                        <div class="">
-                            <p class="form-label">Mã số: DA_${id}</p>
+                        <div class="" style="display:none">
+                            <form:input type="text" class="form-control" id="contentTopicName" path="id"/>
                         </div>
                         <div class="">
-                            <label for="projectName" class="form-label">Dự án</label>
-                            <form:input type="text" class="form-control" id="projectName" path="name"/>
+                            <p class="form-label">Dự án: ${project.name}</p>
                         </div>
                         <div class="">
-                            <label for="projectDescription" class="form-label">Mô tả</label>
-                            <form:input type="text" class="form-control" id="projectDescription" path="description"/>
+                            <label for="contentTopicName" class="form-label">Chủ đề</label>
+                            <form:input type="text" class="form-control" id="contentTopicName" path="name"/>
                         </div>
                         <div class="">
-                            <label class="form-label">Loại dự án</label>
-                            <form:select class="form-select" path="type">
-                                <form:option value="Youtube">Youtube</form:option>
-                                <form:option value="Youtube">Youtube</form:option>
-                                <form:option value="App">App</form:option>
+                            <label for="contentTopicDescription" class="form-label">Mô tả</label>
+                            <form:input type="text" class="form-control" id="contentTopicDescription"
+                                        path="description"/>
+                        </div>
+                        <div class="">
+                            <label for="contentTopicUrl_1" class="form-label">Đường dẫn 1</label>
+                            <form:input type="text" class="form-control" id="contentTopicUrl_1" path="url_1"/>
+                        </div>
+                        <div class="">
+                            <label for="contentTopicUrl_2" class="form-label">Đường dẫn 2</label>
+                            <form:input type="text" class="form-control" id="contentTopicUrl_2" path="url_2"/>
+                        </div>
+                        <div class="">
+                            <label for="contentTopicUrl_3" class="form-label">Đường dẫn 3</label>
+                            <form:input type="text" class="form-control" id="contentTopicUrl_3" path="url_3"/>
+                        </div>
+                        <div class="">
+                            <label class="form-label">Trạng thái</label>
+                            <form:select class="form-select status-form" path="contentTopicStatus.name">
+                                <form:option value="Hoạt động">Hoạt động</form:option>
+                                <form:option value="Chờ chap">Chờ chap</form:option>
+                                <form:option value="Hết season">Hết season</form:option>
+                                <form:option value="Tạm dừng">Tạm dừng</form:option>
+                                <form:option value="Kết thúc">Kết thúc</form:option>
                             </form:select>
                         </div>
                         <div class="">
-                            <label for="projectFile" class="form-label">Image:</label>
-                            <input class="form-control" type="file" id="projectFile"
+                            <label for="contentTopicFile" class="form-label">Image:</label>
+                            <input class="form-control" type="file" id="contentTopicFile"
                                    accept=".png, .jpg, .jpeg" name="hrmsFile"/>
                         </div>
                     </div>
 
                     <div class="image-box">
                         <img style="display: none;" alt="project preview"
-                             id="projectPreview" class="avatar-user"/>
+                             id="contentTopicPreview" class="avatar-user"/>
                     </div>
                 </div>
                 <div class="button-box">

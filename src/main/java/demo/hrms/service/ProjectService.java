@@ -1,9 +1,8 @@
 package demo.hrms.service;
 
-import demo.hrms.domain.Project;
-import demo.hrms.domain.ProjectUser;
-import demo.hrms.domain.User;
+import demo.hrms.domain.*;
 import demo.hrms.repository.ContentTopicRepository;
+import demo.hrms.repository.ContentTopicStatusRepository;
 import demo.hrms.repository.ProjectRepository;
 import demo.hrms.repository.ProjectUserRepository;
 import org.springframework.stereotype.Service;
@@ -15,13 +14,16 @@ public class ProjectService {
     private final ProjectRepository projectRepository;
     private final ProjectUserRepository projectUserRepository;
     private final ContentTopicRepository contentTopicRepository;
+    private final ContentTopicStatusRepository contentTopicStatusRepository;
 
     public ProjectService(ProjectRepository projectRepository,
                           ProjectUserRepository projectUserRepository,
-                          ContentTopicRepository contentTopicRepository) {
+                          ContentTopicRepository contentTopicRepository,
+                          ContentTopicStatusRepository contentTopicStatusRepository) {
         this.projectRepository = projectRepository;
         this.projectUserRepository = projectUserRepository;
         this.contentTopicRepository = contentTopicRepository;
+        this.contentTopicStatusRepository = contentTopicStatusRepository;
     }
 
     //project
@@ -58,4 +60,28 @@ public class ProjectService {
     }
 
     //project - contentTopic
+    public ContentTopic addNewContentTopic(ContentTopic contentTopic) {
+        return this.contentTopicRepository.save(contentTopic);
+    }
+
+    public List<ContentTopic> listAllContentTopicByProject(Long project_id) {
+        return this.contentTopicRepository.findContentTopicByProjectId(project_id);
+    }
+
+    public ContentTopic loadContentTopicById(long content_topic_id) {
+        return this.contentTopicRepository.findContentTopicById(content_topic_id);
+    }
+
+    public int countContentTopicInProject(Long project_id) {
+        return this.contentTopicRepository.findContentTopicByProjectId(project_id).size();
+    }
+
+    public ContentTopic deleteContentTopic(long content_topic_id) {
+        return this.contentTopicRepository.deleteById(content_topic_id);
+    }
+
+    public ContentTopicStatus getContentTopicStatusByName(String name) {
+        return this.contentTopicStatusRepository.findIdByName(name);
+    }
+
 }

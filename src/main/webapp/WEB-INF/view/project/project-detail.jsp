@@ -31,7 +31,7 @@
                     <p>Dự án: ${project.name}</p>
                     <p>Mô tả: ${project.description}</p>
                     <p>Số nhân sự: ${countUser}</p>
-                    <p>SL chủ đề nội dung:</p>
+                    <p>SL chủ đề nội dung: ${countContentTopic}</p>
                     <p>SL công việc còn:</p>
                 </div>
 
