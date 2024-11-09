@@ -14,3 +14,19 @@
  (3, 'Hết season'),
  (4, 'Tạm dừng'),
  (5, 'Kết thúc');`
+
+#task_status
+`INSERT INTO task_status (id, status) VALUES
+(1, 'Chuẩn bị'),
+(2, 'Đang làm'),
+(3, 'Xét duyệt'),
+(4, 'Tạm hoãn'),
+(5, 'Hoàn thành');`
+
+#task_priority
+`INSERT INTO task_priority (id, priority) VALUES
+(1, 'Khẩn cấp'),
+(2, 'Cao'),
+(3, 'Trung bình'),
+(4, 'Thấp'),
+(5, 'Không ưu tiên');`

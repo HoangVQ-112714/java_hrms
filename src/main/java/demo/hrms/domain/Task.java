@@ -18,8 +18,13 @@ public class Task {
     @NotNull
     private String description;
 
-    @NotNull
-    private String status;
+    @ManyToOne
+    @JoinColumn(name = "task_status_id")
+    private TaskStatus taskStatus;
+
+    @ManyToOne
+    @JoinColumn(name = "task_priority_id")
+    private TaskPriority taskPriority;
 
     @NotNull
     private long created_user_id;
@@ -90,12 +95,20 @@ public class Task {
         this.description = description;
     }
 
-    public @NotNull String getStatus() {
-        return status;
+    public @NotNull TaskStatus getTaskStatus() {
+        return taskStatus;
     }
 
-    public void setStatus(@NotNull String status) {
-        this.status = status;
+    public void setTaskStatus(@NotNull TaskStatus taskStatus) {
+        this.taskStatus = taskStatus;
+    }
+
+    public TaskPriority getTaskPriority() {
+        return taskPriority;
+    }
+
+    public void setTaskPriority(TaskPriority taskPriority) {
+        this.taskPriority = taskPriority;
     }
 
     @NotNull

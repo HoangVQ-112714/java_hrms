@@ -32,47 +32,114 @@
                 <div class="detail-div">
                     <div class="detail-box">
                         <div class="">
-                            <label for="contentTopicName" class="form-label">Chủ đề</label>
-                            <form:input type="text" class="form-control" id="contentTopicName" path="name"/>
+                            <label for="taskTitle" class="form-label">Chủ đề</label>
+                            <form:input type="text" class="form-control" id="taskTitle" path="title"/>
                         </div>
                         <div class="">
-                            <label for="contentTopicDescription" class="form-label">Mô tả</label>
-                            <form:input type="text" class="form-control" id="contentTopicDescription"
-                                        path="description"/>
-                        </div>
-                        <div class="">
-                            <label for="contentTopicUrl1" class="form-label">Đường dẫn 1</label>
-                            <form:input type="text" class="form-control" id="contentTopicUrl1" path="url_1"/>
-                        </div>
-                        <div class="">
-                            <label for="contentTopicUrl2" class="form-label">Đường dẫn 2</label>
-                            <form:input type="text" class="form-control" id="contentTopicUrl2" path="url_2"/>
-                        </div>
-                        <div class="">
-                            <label for="contentTopicUrl3" class="form-label">Đường dẫn 3</label>
-                            <form:input type="text" class="form-control" id="contentTopicUrl3" path="url_3"/>
+                            <label for="taskDescription" class="form-label">Mô tả</label>
+                            <form:input type="text" class="form-control" id="taskDescription" path="description"/>
                         </div>
                         <div class="">
                             <label class="form-label">Trạng thái</label>
-                            <form:select class="form-select" path="contentTopicStatus.name">
-                                <form:option value="Hoạt động">Hoạt động</form:option>
-                                <form:option value="Chờ chap">Chờ chap</form:option>
-                                <form:option value="Hết season">Hết season</form:option>
-                                <form:option value="Tạm dừng">Tạm dừng</form:option>
-                                <form:option value="Kết thúc">Kết thúc</form:option>
+                            <form:select class="form-select" path="taskStatus.status">
+                                <c:forEach items="${arrTaskStatus}" var="taskStatus">
+                                    <form:option value="${taskStatus.id}">${taskStatus.status}</form:option>
+                                </c:forEach>
                             </form:select>
                         </div>
                         <div class="">
-                            <label for="contentTopicFile" class="form-label">Image:</label>
-                            <input class="form-control" type="file" id="contentTopicFile"
-                                   accept=".png, .jpg, .jpeg" name="hrmsFile"/>
+                            <label class="form-label">Người tạo</label>
+                            <form:select class="form-select" path="created_user_id">
+                                <c:forEach items="${arrUser}" var="user">
+                                    <form:option value="${user.id}">${user.name}</form:option>
+                                </c:forEach>
+                            </form:select>
                         </div>
+                        <div class="">
+                            <label class="form-label">Người làm</label>
+                            <form:select class="form-select" path="assigned_user_id">
+                                <c:forEach items="${arrUser}" var="user">
+                                    <form:option value="${user.id}">${user.name}</form:option>
+                                </c:forEach>
+                            </form:select>
+                        </div>
+                        <div class="">
+                            <label class="form-label">Mức độ ưu tiên</label>
+                            <form:select class="form-select" path="taskPriority.priority">
+                                <c:forEach items="${arrTaskPriority}" var="taskPriority">
+                                    <form:option value="${taskPriority.id}">${taskPriority.priority}</form:option>
+                                </c:forEach>
+                            </form:select>
+                        </div>
+                        <div class="">
+                            <label for="taskStartDate" class="form-label">Ngày bắt đầu</label>
+                            <form:input type="date" class="form-control" id="taskStartDate" path="start_date"/>
+                        </div>
+                        <div class="">
+                            <label for="taskDueDate" class="form-label">Hạn hoàn thành</label>
+                            <form:input type="date" class="form-control" id="taskDueDate" path="due_date"/>
+                        </div>
+
+                            <%--                        <div class="">--%>
+                            <%--                            <label for="contentTopicName" class="form-label">Chủ đề</label>--%>
+                            <%--                            <form:input type="text" class="form-control" id="contentTopicName" path="name"/>--%>
+                            <%--                        </div>--%>
+                            <%--                        <div class="">--%>
+                            <%--                            <label for="contentTopicName" class="form-label">Chủ đề</label>--%>
+                            <%--                            <form:input type="text" class="form-control" id="contentTopicName" path="name"/>--%>
+                            <%--                        </div>--%>
+                            <%--                        <div class="">--%>
+                            <%--                            <label for="contentTopicName" class="form-label">Chủ đề</label>--%>
+                            <%--                            <form:input type="text" class="form-control" id="contentTopicName" path="name"/>--%>
+                            <%--                        </div>--%>
+                            <%--                        <div class="">--%>
+                            <%--                            <label for="contentTopicName" class="form-label">Chủ đề</label>--%>
+                            <%--                            <form:input type="text" class="form-control" id="contentTopicName" path="name"/>--%>
+                            <%--                        </div>--%>
+                            <%--                        <div class="">--%>
+                            <%--                            <label for="contentTopicName" class="form-label">Chủ đề</label>--%>
+                            <%--                            <form:input type="text" class="form-control" id="contentTopicName" path="name"/>--%>
+                            <%--                        </div>--%>
+
+
+                            <%--                        <div class="">--%>
+                            <%--                            <label for="contentTopicDescription" class="form-label">Mô tả</label>--%>
+                            <%--                            <form:input type="text" class="form-control" id="contentTopicDescription"--%>
+                            <%--                                        path="description"/>--%>
+                            <%--                        </div>--%>
+                            <%--                        <div class="">--%>
+                            <%--                            <label for="contentTopicUrl1" class="form-label">Đường dẫn 1</label>--%>
+                            <%--                            <form:input type="text" class="form-control" id="contentTopicUrl1" path="url_1"/>--%>
+                            <%--                        </div>--%>
+                            <%--                        <div class="">--%>
+                            <%--                            <label for="contentTopicUrl2" class="form-label">Đường dẫn 2</label>--%>
+                            <%--                            <form:input type="text" class="form-control" id="contentTopicUrl2" path="url_2"/>--%>
+                            <%--                        </div>--%>
+                            <%--                        <div class="">--%>
+                            <%--                            <label for="contentTopicUrl3" class="form-label">Đường dẫn 3</label>--%>
+                            <%--                            <form:input type="text" class="form-control" id="contentTopicUrl3" path="url_3"/>--%>
+                            <%--                        </div>--%>
+                            <%--                        <div class="">--%>
+                            <%--                            <label class="form-label">Trạng thái</label>--%>
+                            <%--                            <form:select class="form-select" path="contentTopicStatus.name">--%>
+                            <%--                                <form:option value="Hoạt động">Hoạt động</form:option>--%>
+                            <%--                                <form:option value="Chờ chap">Chờ chap</form:option>--%>
+                            <%--                                <form:option value="Hết season">Hết season</form:option>--%>
+                            <%--                                <form:option value="Tạm dừng">Tạm dừng</form:option>--%>
+                            <%--                                <form:option value="Kết thúc">Kết thúc</form:option>--%>
+                            <%--                            </form:select>--%>
+                            <%--                        </div>--%>
+                            <%--                        <div class="">--%>
+                            <%--                            <label for="contentTopicFile" class="form-label">Image:</label>--%>
+                            <%--                            <input class="form-control" type="file" id="contentTopicFile"--%>
+                            <%--                                   accept=".png, .jpg, .jpeg" name="hrmsFile"/>--%>
+                            <%--                        </div>--%>
                     </div>
 
-                    <div class="image-box">
-                        <img style="display: none;" alt="project preview"
-                             id="contentTopicPreview" class="avatar-user"/>
-                    </div>
+                        <%--                    <div class="image-box">--%>
+                        <%--                        <img style="display: none;" alt="project preview"--%>
+                        <%--                             id="contentTopicPreview" class="avatar-user"/>--%>
+                        <%--                    </div>--%>
                 </div>
 
                 <div class="button-box">
