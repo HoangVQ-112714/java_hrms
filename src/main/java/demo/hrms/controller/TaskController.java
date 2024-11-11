@@ -1,9 +1,6 @@
 package demo.hrms.controller;
 
-import demo.hrms.domain.Task;
-import demo.hrms.domain.TaskPriority;
-import demo.hrms.domain.TaskStatus;
-import demo.hrms.domain.User;
+import demo.hrms.domain.*;
 import demo.hrms.service.ProjectService;
 import demo.hrms.service.TaskService;
 import demo.hrms.service.UserService;
@@ -50,11 +47,22 @@ public class TaskController {
         List<User> arrUser = this.userService.listAllUser();
         model.addAttribute("arrUser", arrUser);
 
+        List<Task> arrTask = this.taskService.listAllTasks();
+        model.addAttribute("arrTask", arrTask);
+
         List<TaskStatus> arrTaskStatus = this.taskService.listAllTaskStatus();
         model.addAttribute("arrTaskStatus", arrTaskStatus);
 
         List<TaskPriority> arrTaskPriority = this.taskService.listAllTaskPriority();
         model.addAttribute("arrTaskPriority", arrTaskPriority);
+
+        List<TaskType> arrTaskType = this.taskService.listAllTaskType();
+        model.addAttribute("arrTaskType", arrTaskType);
+
+        List<Project> arrProject = this.projectService.listAllProject();
+        model.addAttribute("arrProject", arrProject);
+
+//        List<ContentTopic> arrContentTopic = this.projectService.loadContentTopicById(1);
 
         return "task/task-create";
     }

@@ -30,3 +30,15 @@
 (3, 'Trung bình'),
 (4, 'Thấp'),
 (5, 'Không ưu tiên');`
+
+#task_type
+`INSERT INTO task_type (id, type) VALUES
+(1, 'Nhiệm vụ chính'),
+(2, 'Dịch'),
+(3, 'Cắt ảnh / video'),
+(4, 'Chỉnh sửa nội dung'),
+(5, 'Thiết kế ảnh hiển thị'),
+(6, 'Biên tập video'),
+(7, 'Xét duyệt đăng tải'),
+(8, 'Chỉnh sửa lỗi bản quyền'),
+(9, 'Thu âm');`

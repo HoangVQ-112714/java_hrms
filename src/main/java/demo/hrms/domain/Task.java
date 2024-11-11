@@ -18,14 +18,6 @@ public class Task {
     @NotNull
     private String description;
 
-    @ManyToOne
-    @JoinColumn(name = "task_status_id")
-    private TaskStatus taskStatus;
-
-    @ManyToOne
-    @JoinColumn(name = "task_priority_id")
-    private TaskPriority taskPriority;
-
     @NotNull
     private long created_user_id;
 
@@ -34,9 +26,6 @@ public class Task {
 
     @NotNull
     private String priority;
-
-    @NotNull
-    private String type;
 
     @NotNull
     private String parent;
@@ -52,6 +41,18 @@ public class Task {
 
     @NotNull
     private String updated_at;
+
+    @ManyToOne
+    @JoinColumn(name = "task_status_id")
+    private TaskStatus taskStatus;
+
+    @ManyToOne
+    @JoinColumn(name = "task_priority_id")
+    private TaskPriority taskPriority;
+
+    @ManyToOne
+    @JoinColumn(name = "task_type_id")
+    private TaskType taskType;
 
     @ManyToOne
     @JoinColumn(name = "project_id")
@@ -137,14 +138,6 @@ public class Task {
         this.priority = priority;
     }
 
-    public @NotNull String getType() {
-        return type;
-    }
-
-    public void setType(@NotNull String type) {
-        this.type = type;
-    }
-
     public @NotNull String getParent() {
         return parent;
     }
@@ -223,5 +216,13 @@ public class Task {
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
+    }
+
+    public TaskType getTaskType() {
+        return taskType;
+    }
+
+    public void setTaskType(TaskType taskType) {
+        this.taskType = taskType;
     }
 }

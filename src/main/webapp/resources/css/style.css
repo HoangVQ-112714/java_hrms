@@ -413,4 +413,97 @@ body {
   display: flex;
 }
 
+.task-page {
+  padding: 5rem 2rem;
+}
+.task-page p, .task-page th, .task-page td, .task-page label {
+  color: #fff;
+}
+.task-page p.header-title {
+  font-size: 4rem;
+  margin-bottom: 4rem;
+}
+.task-page .header-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 10rem;
+}
+.task-page .button {
+  width: 22rem;
+  border: 1px solid #b29104;
+  border-radius: 30px;
+  height: 5rem;
+  background-color: #b29104;
+  font-size: 1.6rem;
+  text-align: center;
+  line-height: 5rem;
+  font-weight: bold;
+}
+.task-page .button:hover {
+  color: #fff;
+}
+.task-page button.button {
+  line-height: normal;
+  color: #fff;
+}
+.task-page .form-project {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.task-page .form-project div {
+  width: 40%;
+  background-color: rgba(178, 145, 4, 0.5019607843);
+  margin-right: 4rem;
+  margin-bottom: 3rem;
+  padding: 2rem;
+}
+.task-page .form-project div label {
+  color: #fff;
+  font-size: 1.6rem;
+}
+.task-page .form-project .submit-div {
+  background-color: #1e1e1e;
+}
+
+.task-create-page .body-main {
+  height: calc(100% - 10rem);
+}
+.task-create-page .body-main form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.task-create-page .body-main form label {
+  color: #fff;
+  font-size: 1.6rem;
+  margin-top: 2rem;
+}
+.task-create-page .body-main form .detail-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.task-create-page .body-main form .detail-div .detail-box {
+  background-color: rgba(178, 145, 4, 0.5019607843);
+  width: 100%;
+  padding: 2rem;
+  border: 1px solid rgba(178, 145, 4, 0.5019607843);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.task-create-page .body-main form .detail-div .detail-box .detail-box-1,
+.task-create-page .body-main form .detail-div .detail-box .detail-box-2 {
+  width: 45%;
+}
+.task-create-page .body-main form .button-box {
+  height: 10rem;
+  display: flex;
+}
+
 /*# sourceMappingURL=style.css.map */
