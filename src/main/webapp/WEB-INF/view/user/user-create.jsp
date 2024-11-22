@@ -44,9 +44,9 @@
                 <div class="">
                     <label class="form-label">Role</label>
                     <form:select class="form-select" path="role.name">
-                        <form:option value="Admin">Admin</form:option>
-                        <form:option value="Leader">Leader</form:option>
-                        <form:option value="Member">Member</form:option>
+                        <c:forEach items="${roles}" var="role">
+                            <form:option value="${role.name}">${role.name}</form:option>
+                        </c:forEach>
                     </form:select>
                 </div>
 

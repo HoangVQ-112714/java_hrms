@@ -1,5 +1,6 @@
 package demo.hrms.controller;
 
+import demo.hrms.domain.Role;
 import demo.hrms.domain.User;
 import demo.hrms.service.UploadService;
 import demo.hrms.service.UserService;
@@ -38,6 +39,8 @@ public class UserController {
     @GetMapping("/user/create")
     public String creatUser(Model model) {
         model.addAttribute("newUser", new User());
+        List<Role> arrRole = this.userService.listAllRole();
+        model.addAttribute("roles", arrRole);
         return "user/user-create";
     }
 
@@ -69,6 +72,8 @@ public class UserController {
     public String updateUser(Model model, @PathVariable long id) {
         User user = this.userService.loadUserById(id);
         model.addAttribute("user", user);
+        List<Role> arrRole = this.userService.listAllRole();
+        model.addAttribute("roles", arrRole);
         return "user/user-update";
     }
 
@@ -92,7 +97,6 @@ public class UserController {
                 String hashPassword = this.passwordEncoder.encode(user.getPassword());
                 user.setPassword(hashPassword);
             }
-
             this.userService.addNewUser(user);
         }
         return "redirect:/user/list";
@@ -115,4 +119,19 @@ public class UserController {
     public String loginUser(Model model) {
         return "user/user-login";
     }
+
+//    @PostMapping(value = "/user/login/post")
+//    public String loginUserPost(@ModelAttribute("newUser") @Valid User user,
+//                                BindingResult newUserBindingResult) {
+//        if (newUserBindingResult.hasErrors()) {
+//            return "user/user-login";
+//        }
+//        String hashPassword = this.passwordEncoder.encode(user.getPassword());
+//        user.setPassword(hashPassword);
+//        user.setRole(this.userService.getRoleByName(user.getRole().getName()));
+//        user.setStatus("Active");
+//        user.setAvatar("avatar-default-1.jpg");
+//        this.userService.addNewUser(user);
+//        return "redirect:/user/list";
+//    }
 }

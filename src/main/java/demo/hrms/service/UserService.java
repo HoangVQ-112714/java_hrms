@@ -41,6 +41,10 @@ public class UserService {
         return this.roleRepository.findIdByName(name);
     }
 
+    public List<Role> listAllRole() {
+        return this.roleRepository.findAll();
+    }
+
     public List<User> loadUserForProject(Long project_id) {
         List<Long> userIds = this.projectUserRepository.findUserIdsByProjectId(project_id);
         return this.userRepository.findUsersByIds(userIds);
