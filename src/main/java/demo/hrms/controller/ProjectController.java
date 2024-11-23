@@ -1,9 +1,6 @@
 package demo.hrms.controller;
 
-import demo.hrms.domain.ContentTopic;
-import demo.hrms.domain.Project;
-import demo.hrms.domain.ProjectUser;
-import demo.hrms.domain.User;
+import demo.hrms.domain.*;
 import demo.hrms.service.ProjectService;
 import demo.hrms.service.UploadService;
 import demo.hrms.service.UserService;
@@ -230,6 +227,8 @@ public class ProjectController {
         model.addAttribute("project", project);
         ContentTopic contentTopic = this.projectService.loadContentTopicById(content_topic_id);
         model.addAttribute("contentTopic", contentTopic);
+        List<ContentTopicStatus> arrContentTopicStatus = this.projectService.listAllContentTopicStatus();
+        model.addAttribute("arrContentTopicStatus", arrContentTopicStatus);
         return "content-topic/content-topic-update";
     }
 

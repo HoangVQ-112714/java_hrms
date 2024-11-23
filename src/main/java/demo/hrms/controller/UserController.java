@@ -85,16 +85,16 @@ public class UserController {
         User user = this.userService.loadUserById(userInfo.getId());
         if (user != null) {
             user.setName(userInfo.getName());
-            user.setEmail(user.getEmail());
+            user.setEmail(userInfo.getEmail());
             user.setPhone(userInfo.getPhone());
-            user.setStatus(user.getStatus());
-            user.setRole(this.userService.getRoleByName(user.getRole().getName()));
+            user.setStatus(userInfo.getStatus());
+            user.setRole(this.userService.getRoleByName(userInfo.getRole().getName()));
 
             String avatar = this.uploadService.handleSaveFileUploadFile(file, "avatar");
             user.setAvatar(avatar);
 
-            if (user.getPassword() != null) {
-                String hashPassword = this.passwordEncoder.encode(user.getPassword());
+            if (userInfo.getPassword() != null) {
+                String hashPassword = this.passwordEncoder.encode(userInfo.getPassword());
                 user.setPassword(hashPassword);
             }
             this.userService.addNewUser(user);

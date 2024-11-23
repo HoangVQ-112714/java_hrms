@@ -25,13 +25,13 @@
             if (orgImage) {
                 const urlImage = "/images/avatar/" + orgImage;
                 $("#avatarPreview").attr("src", urlImage);
-                $("#avatarPreview").css({ "display": "block" });
+                $("#avatarPreview").css({"display": "block"});
             }
 
             avatarFile.change(function (e) {
                 const imgURL = URL.createObjectURL(e.target.files[0]);
                 $("#avatarPreview").attr("src", imgURL);
-                $("#avatarPreview").css({ "display": "block" });
+                $("#avatarPreview").css({"display": "block"});
             });
         });
     </script>
@@ -45,7 +45,7 @@
             <a href="/user/list" class="button">Trở về</a>
         </div>
         <div class="body-main">
-            <form:form method="post" action="/user/${id}" modelAttribute="user"  enctype="multipart/form-data">
+            <form:form method="post" action="/user/${id}" modelAttribute="user" enctype="multipart/form-data">
                 <div class="detail-div">
                     <div class="detail-box">
                         <div class="">
@@ -100,6 +100,10 @@
             </form:form></div>
     </div>
 </div>
-</div>
+<script>
+    $(document).ready(() => {
+        $('input#userPass').val("");
+    });
+</script>
 </body>
 </html>

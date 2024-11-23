@@ -42,7 +42,7 @@
                 </div>
             </div>
             <div class="button-box">
-                <a href="/project/${project.id}/update" class="button button-edit">Chỉnh sửa</a>
+                <a href="/project/${project.id}/content_topic/${contentTopic.id}/update" class="button button-edit">Chỉnh sửa</a>
                 <a href="/project/${project.id}/add_user" class="button button-edit">Thêm người vào dự án</a>
                 <a href="/project/${project.id}/add_content_section" class="button button-edit">Thêm tập</a>
             </div>

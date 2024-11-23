@@ -24,7 +24,7 @@
     <jsp:include page="../layout/nav.jsp"/>
     <div class="body-content task-page task-create-page">
         <div class="header-main">
-            <p class="header-title">Thêm chủ đề</p>
+            <p class="header-title">Thêm công việc</p>
             <a href="/task/list" class="button">Trở về</a>
         </div>
         <div class="body-main">
@@ -34,7 +34,7 @@
                     <div class="detail-box">
                         <div class="detail-box-1">
                             <div class="">
-                                <label for="taskTitle" class="form-label">Chủ đề</label>
+                                <label for="taskTitle" class="form-label">Công việc</label>
                                 <form:input type="text" class="form-control" id="taskTitle" path="title"/>
                             </div>
                             <div class="">

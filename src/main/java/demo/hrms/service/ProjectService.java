@@ -80,6 +80,10 @@ public class ProjectService {
         return this.contentTopicRepository.deleteById(content_topic_id);
     }
 
+    public List<ContentTopicStatus> listAllContentTopicStatus() {
+        return this.contentTopicStatusRepository.findAll();
+    }
+
     public ContentTopicStatus getContentTopicStatusByName(String name) {
         return this.contentTopicStatusRepository.findIdByName(name);
     }

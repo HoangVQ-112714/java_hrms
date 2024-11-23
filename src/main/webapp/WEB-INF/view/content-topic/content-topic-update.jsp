@@ -80,11 +80,10 @@
                         <div class="">
                             <label class="form-label">Trạng thái</label>
                             <form:select class="form-select status-form" path="contentTopicStatus.name">
-                                <form:option value="Hoạt động">Hoạt động</form:option>
-                                <form:option value="Chờ chap">Chờ chap</form:option>
-                                <form:option value="Hết season">Hết season</form:option>
-                                <form:option value="Tạm dừng">Tạm dừng</form:option>
-                                <form:option value="Kết thúc">Kết thúc</form:option>
+                                <c:forEach items="${arrContentTopicStatus}" var="contentTopicStatus">
+                                    <form:option
+                                            value="${contentTopicStatus.status}">${contentTopicStatus.status}</form:option>
+                                </c:forEach>
                             </form:select>
                         </div>
                         <div class="">
